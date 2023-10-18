@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "name": "Apple",
+        "image": "https://i.postimg.cc/MGwWZvX2/apple-circle.png"
+    },
+    {
+        "id": 2,
+        "name": "Samsung",
+        "image": "https://i.postimg.cc/wM50KcTP/samsung-circle.png"
+    },
+    {
+        "id": 3,
+        "name": "Sony",
+        "image": "https://i.postimg.cc/mkvvd5Hf/sony.png"
+    },
+    {
+        "id": 4,
+        "name": "Asus",
+        "image": "https://i.postimg.cc/X7cDt3rJ/asus-circle.png"
+    },
+    {
+        "id": 5,
+        "name": "Huawei",
+        "image": "https://i.postimg.cc/1z4CgqJn/huawei-circle.png"
+    },
+    {
+        "id": 6,
+        "name": "LG",
+        "image": "https://i.postimg.cc/Mp3t8GqW/pngimg-com-lg-logo-PNG13.png"
+    }
+]
