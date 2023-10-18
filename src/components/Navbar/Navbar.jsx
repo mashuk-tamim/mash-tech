@@ -12,10 +12,10 @@ const navLinks = (
             <NavLink to="/"><AiFillHome></AiFillHome>Home</NavLink>
         </li>
         <li>
-            <NavLink to="/addProducts"><BsDatabaseFillAdd></BsDatabaseFillAdd>Add Product</NavLink>
+            <NavLink to="/addProduct"><BsDatabaseFillAdd></BsDatabaseFillAdd>Add Product</NavLink>
         </li>
         <li>
-            <NavLink to="/myCart"><BsFillCartPlusFill></BsFillCartPlusFill>My Cart</NavLink>
+            <NavLink to="/cart"><BsFillCartPlusFill></BsFillCartPlusFill>My Cart</NavLink>
         </li>
         <li>
             <NavLink to="/login">Login</NavLink>
