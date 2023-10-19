@@ -1,6 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 import { BsFillCartPlusFill, BsDatabaseFillAdd } from "react-icons/bs";
 import { AiFillHome } from "react-icons/ai";
+import logo_white from '../../assets/logo/logo_white.png'
 
 // import { useContext } from "react";
 // import { AuthContext } from "../../providers/AuthProvider";
@@ -52,9 +53,9 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <Link to="/">
-                    <div className="flex items-center gap-1">
-                        <img className="w-1/4" src='' alt="" />
-                        <p className="font-semibold md:text-xl">MashTech</p>
+                    <div className="flex items-center">
+                        <img className='w-1/12' src={logo_white} alt="" />
+                        <p className="font-semibold md:text-lg">MashTech</p>
                     </div>
                 </Link>
             </div>
