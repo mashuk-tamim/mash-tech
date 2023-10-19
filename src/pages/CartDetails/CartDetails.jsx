@@ -1,29 +1,50 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 import Rating from "react-rating";
 import { BsStar, BsStarFill } from "react-icons/bs";
+import Swal from "sweetalert2";
+import { useState } from "react";
 
 CartDetails.propTypes = {
     cartItem: PropTypes.object.isRequired,
+    carts: PropTypes.array.isRequired,
+    setCarts: PropTypes.func.isRequired,
 };
 
-function CartDetails({cartItem}) {
-    const {_id, image, name, brand, price, rating} = cartItem;
+function CartDetails({ cartItem, carts, setCarts }) {
+    const { _id, image, name, brand, price, rating } = cartItem;
 
     const HandleRemoveFromCart = (id) => {
         console.log(id);
 
-        fetch(`http://localhost:5000/carts/${id}`,{
-            method: 'DELETE',
-            // headers: {
-            //     'content-type': 'application/json'
-            // },
-            // body: JSON.stringify(id)
-        })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-        })
-    }
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`http://localhost:5000/carts/${id}`, {
+                    method: "DELETE",
+                })
+                    .then((res) => res.json())
+                    .then((data) => {
+                        console.log(data);
+                        if (data.deletedCount > 0) {
+                            Swal.fire(
+                                "Deleted!",
+                                "Your product has been deleted from cart.",
+                                "success"
+                            );
+                            const remainingCart = carts.filter(remaining => remaining._id !== id);
+                            setCarts(remainingCart);
+                        }
+                    });
+            }
+        });
+    };
     return (
         <div className="border rounded-xl shadow-slate-400 shadow-lg">
             <div className="flex justify-start gap-5 p-2">
@@ -32,7 +53,7 @@ function CartDetails({cartItem}) {
                 </div>
                 <div className="flex flex-col">
                     <div className="flex gap-5">
-                        <h3 className='font-semibold'>{name}</h3>
+                        <h3 className="font-semibold">{name}</h3>
                         <p>
                             <kbd className="kbd kbd-sm font-poppins">
                                 {brand}
@@ -58,7 +79,10 @@ function CartDetails({cartItem}) {
                 </div>
             </div>
             <div className="p-2">
-                <button onClick={() => HandleRemoveFromCart(_id)} className="btn btn-ghost btn-outline btn-xs md:btn-sm w-full">
+                <button
+                    onClick={() => HandleRemoveFromCart(_id)}
+                    className="btn btn-ghost btn-outline btn-xs md:btn-sm w-full"
+                >
                     Remove from Cart
                 </button>
             </div>

@@ -21,6 +21,8 @@ const Cart = () => {
                     <CartDetails
                         cartItem={cartItem}
                         key={cartItem._id}
+                        carts={carts}
+                        setCarts={setCarts}
                     ></CartDetails>
                 ))}
             </div>
