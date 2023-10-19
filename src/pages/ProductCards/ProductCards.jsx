@@ -15,8 +15,8 @@ function ProductCards({ matchedProduct }) {
     // console.log(image, _id);
 
     return (
-        <div className="border rounded-xl p-5 shadow-slate-400 shadow-lg space-y-2">
-            <img className="w-1/2 mx-auto p-5" src={image} alt="" />
+        <div className="border rounded-xl p-5 shadow-slate-400 shadow-lg space-y-2 h-[530px]">
+            <img className="h-1/2 mx-auto p-5" src={image} alt="" />
             <p className="text-xl font-bold">{name}</p>
             <Rating
                 initialRating={rating}

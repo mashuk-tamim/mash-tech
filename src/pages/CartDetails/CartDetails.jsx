@@ -25,9 +25,12 @@ function CartDetails({ cartItem, carts, setCarts }) {
             confirmButtonText: "Yes, delete it!",
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/carts/${id}`, {
-                    method: "DELETE",
-                })
+                fetch(
+                    `https://mash-tech-server-drq2abpar-mashuk-tamims-projects.vercel.app/carts/${id}`,
+                    {
+                        method: "DELETE",
+                    }
+                )
                     .then((res) => res.json())
                     .then((data) => {
                         console.log(data);
@@ -37,7 +40,9 @@ function CartDetails({ cartItem, carts, setCarts }) {
                                 "Your product has been deleted from cart.",
                                 "success"
                             );
-                            const remainingCart = carts.filter(remaining => remaining._id !== id);
+                            const remainingCart = carts.filter(
+                                (remaining) => remaining._id !== id
+                            );
                             setCarts(remainingCart);
                         }
                     });

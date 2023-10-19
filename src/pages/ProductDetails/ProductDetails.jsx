@@ -9,7 +9,9 @@ const ProductDetails = () => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:5000/products")
+        fetch(
+            "https://mash-tech-server-drq2abpar-mashuk-tamims-projects.vercel.app/products"
+        )
             .then((res) => res.json())
             .then((data) => {
                 setProducts(data);
@@ -27,30 +29,32 @@ const ProductDetails = () => {
         matchedProduct || {};
 
     const handleAddToCart = () => {
-        fetch("http://localhost:5000/carts", {
-            method: "POST",
-            headers: {
-                "content-type": "application/json",
-            },
-            body: JSON.stringify(matchedProduct)
-        })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-            if (data.insertedId) {
-                Swal.fire({
-                    title: "Added to Cart Successfully",
-                    showClass: {
-                        popup: "animate__animated animate__fadeInDown",
-                    },
-                    hideClass: {
-                        popup: "animate__animated animate__fadeOutUp",
-                    },
-                });
+        fetch(
+            "https://mash-tech-server-drq2abpar-mashuk-tamims-projects.vercel.app/carts",
+            {
+                method: "POST",
+                headers: {
+                    "content-type": "application/json",
+                },
+                body: JSON.stringify(matchedProduct),
             }
-        })
-    }
-
+        )
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data);
+                if (data.insertedId) {
+                    Swal.fire({
+                        title: "Added to Cart Successfully",
+                        showClass: {
+                            popup: "animate__animated animate__fadeInDown",
+                        },
+                        hideClass: {
+                            popup: "animate__animated animate__fadeOutUp",
+                        },
+                    });
+                }
+            });
+    };
 
     return (
         <div className="p-5 lg:w-3/4 mx-auto">
@@ -103,8 +107,9 @@ const ProductDetails = () => {
                     </div>
                     <div className="pt-3 space-y-2">
                         <button
-                        onClick={ handleAddToCart}
-                        className="btn btn-xs md:btn-sm w-full btn-ghost btn-outline">
+                            onClick={handleAddToCart}
+                            className="btn btn-xs md:btn-sm w-full btn-ghost btn-outline"
+                        >
                             Add to Cart
                         </button>
                     </div>

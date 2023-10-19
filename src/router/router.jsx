@@ -30,7 +30,9 @@ const router = createBrowserRouter([
                 path: "/updateProduct/:id",
                 element: <UpdateProduct></UpdateProduct>,
                 loader: ({ params }) =>
-                    fetch(`http://localhost:5000/products/${params.id}`),
+                    fetch(
+                        `https://mash-tech-server-drq2abpar-mashuk-tamims-projects.vercel.app/products/${params.id}`
+                    ),
             },
             {
                 path: "/brand/:id",
