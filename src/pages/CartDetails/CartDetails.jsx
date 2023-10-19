@@ -2,7 +2,6 @@ import PropTypes from "prop-types";
 import Rating from "react-rating";
 import { BsStar, BsStarFill } from "react-icons/bs";
 import Swal from "sweetalert2";
-import { useState } from "react";
 
 CartDetails.propTypes = {
     cartItem: PropTypes.object.isRequired,

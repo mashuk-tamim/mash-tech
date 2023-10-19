@@ -12,7 +12,7 @@ function ProductCards({ matchedProduct }) {
         matchedProduct || {};
 
     // console.log(_id, name, brand, category, description, price, rating, image);
-    console.log(image, _id);
+    // console.log(image, _id);
 
     return (
         <div className="border rounded-xl p-5 shadow-slate-400 shadow-lg space-y-2">
@@ -48,14 +48,20 @@ function ProductCards({ matchedProduct }) {
                 </p>
             </div>
             <div className="pt-3 space-y-2">
-                <Link to={`/details/${_id}`}>
-                    <button className="btn btn-xs md:btn-sm w-full btn-ghost btn-outline">
-                        Details
-                    </button>
-                </Link>
-                <button className="btn btn-xs md:btn-sm w-full btn-ghost btn-outline">
-                    Update
-                </button>
+                <div>
+                    <Link to={`/details/${_id}`}>
+                        <button className="btn btn-xs md:btn-sm w-full btn-ghost btn-outline">
+                            Details
+                        </button>
+                    </Link>
+                </div>
+                <div>
+                    <Link to={`/updateProduct/${_id}`}>
+                        <button className="btn btn-xs md:btn-sm w-full btn-ghost btn-outline">
+                            Update
+                        </button>
+                    </Link>
+                </div>
             </div>
         </div>
     );
