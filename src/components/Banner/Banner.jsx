@@ -19,7 +19,7 @@ const Banner = () => {
                     clickable: true,
                 }}
                 autoplay={{
-                    delay: 2500,
+                    delay: 50000,
                     disableOnInteraction: false,
                 }}
                 // navigation={true}
@@ -29,7 +29,7 @@ const Banner = () => {
                 <SwiperSlide>
                     <div className="relative">
                         <img
-                            className="w-full md:h-[60vh] object-cover"
+                            className="w-full md:h-[400px] lg:h-[500px] object-cover"
                             src="https://i.postimg.cc/G2VkrTYF/top-view-set-gadgets-purple-neon-light-blue-min.jpg"
                             alt=""
                         />
@@ -43,7 +43,7 @@ const Banner = () => {
                 <SwiperSlide>
                     <div className="relative">
                         <img
-                            className="w-full md:h-[60vh] object-cover"
+                            className="w-full md:h-[400px] lg:h-[500px] object-cover"
                             src="https://i.postimg.cc/Hs3NJb5d/top-view-set-gadgets-purple-neon-light-pink-min.jpg"
                             alt=""
                         />
@@ -57,7 +57,7 @@ const Banner = () => {
                 <SwiperSlide>
                     <div className="relative">
                         <img
-                            className="w-full md:h-[60vh] object-cover"
+                            className="w-full md:h-[400px] lg:h-[500px] object-cover"
                             src="https://i.postimg.cc/fRLrYkjX/still-life-books-versus-technology-min.jpg"
                             alt=""
                         />
