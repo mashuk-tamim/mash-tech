@@ -16,7 +16,7 @@ const navLinks = (
             <NavLink to="/addProduct"><BsDatabaseFillAdd></BsDatabaseFillAdd>Add Product</NavLink>
         </li>
         <li>
-            <NavLink to="/cart"><BsFillCartPlusFill></BsFillCartPlusFill>My Cart</NavLink>
+            <NavLink to="/carts"><BsFillCartPlusFill></BsFillCartPlusFill>My Cart</NavLink>
         </li>
         <li>
             <NavLink to="/login">Login</NavLink>

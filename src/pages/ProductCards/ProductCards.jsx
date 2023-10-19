@@ -15,7 +15,7 @@ function ProductCards({ matchedProduct }) {
     console.log(image, _id);
 
     return (
-        <div className="border rounded-xl p-5 shadow-xl space-y-2">
+        <div className="border rounded-xl p-5 shadow-slate-400 shadow-lg space-y-2">
             <img className="w-1/2 mx-auto p-5" src={image} alt="" />
             <p className="text-xl font-bold">{name}</p>
             <Rating
@@ -39,10 +39,12 @@ function ProductCards({ matchedProduct }) {
             </p> */}
             <div className="flex justify-between text-gray-500">
                 <p>
-                    Brand: <kbd className="kbd kbd-sm">{brand}</kbd>
+                    Brand:{" "}
+                    <kbd className="kbd kbd-sm font-poppins">{brand}</kbd>
                 </p>
                 <p>
-                    Category: <kbd className="kbd kbd-sm">{category}</kbd>
+                    Category:{" "}
+                    <kbd className="kbd kbd-sm font-poppins">{category}</kbd>
                 </p>
             </div>
             <div className="pt-3 space-y-2">
