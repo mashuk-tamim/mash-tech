@@ -12,7 +12,7 @@ const BrandProducts = () => {
     const brand = brands.find((brand) => brand.id === intId);
     // console.log(brand);
 
-    const [products, setProducts] = useState();
+    const [products, setProducts] = useState([]);
 
     useEffect(() => {
         fetch("http://localhost:5000/products")
@@ -31,9 +31,9 @@ const BrandProducts = () => {
 
     return (
         <div>
-            <h2>All Products: {products?.length}</h2>
-            <p>
-                {brand.name} Products: {matchedProducts?.length}
+            {/* <h2>All Products: {products?.length}</h2> */}
+            <p className="text-4xl font-bold text-center py-5">
+                {brand.name} Products
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-5">
                 {matchedProducts?.map((matchedProduct) => (
