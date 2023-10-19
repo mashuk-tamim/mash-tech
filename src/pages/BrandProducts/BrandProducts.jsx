@@ -31,7 +31,7 @@ const BrandProducts = () => {
 
     return (
         <div>
-            {/* <h2>All Products: {products?.length}</h2> */}
+            <h2>All Products: {products?.length}</h2>
             <p className="text-4xl font-bold text-center py-5">
                 {brand.name} Products
             </p>

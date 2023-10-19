@@ -2,9 +2,8 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Rating from "react-rating";
 import { BsStar, BsStarFill } from "react-icons/bs";
-// import { BiSolidQuoteLeft } from "react-icons/bi";
 import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const ProductDetails = () => {
     const [products, setProducts] = useState([]);
@@ -17,17 +16,42 @@ const ProductDetails = () => {
             });
     }, []);
     const { id } = useParams();
-    console.log(id, products);
+    // console.log(id, products);
 
     const matchedProduct = products.find(
         (matchedProduct) => matchedProduct._id === id
     );
     console.log(matchedProduct);
 
-    const { _id, name, brand, category, description, price, rating, image } =
+    const { name, brand, category, description, price, rating, image } =
         matchedProduct || {};
 
-    console.log(_id, name, brand, category, description, price, rating, image);
+    // console.log(_id, name, brand, category, description, price, rating, image);
+
+    const handleAddToCart = () => {
+        fetch("http://localhost:5000/carts", {
+            method: "POST",
+            headers: {
+                "content-type": "application/json",
+            },
+            body: JSON.stringify(matchedProduct)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            if (data.insertedId) {
+                Swal.fire({
+                    title: "Added to Cart Successfully",
+                    showClass: {
+                        popup: "animate__animated animate__fadeInDown",
+                    },
+                    hideClass: {
+                        popup: "animate__animated animate__fadeOutUp",
+                    },
+                });
+            }
+        })
+    }
 
 
     return (
@@ -75,18 +99,15 @@ const ProductDetails = () => {
                             Brand: <kbd className="kbd kbd-sm">{brand}</kbd>
                         </p>
                         <p>
-                            Category:{" "}
+                            Category:
                             <kbd className="kbd kbd-sm">{category}</kbd>
                         </p>
                     </div>
                     <div className="pt-3 space-y-2">
-                        <Link to={`/details/${_id}`}>
-                            <button className="btn btn-xs md:btn-sm w-full btn-ghost btn-outline">
-                                Details
-                            </button>
-                        </Link>
-                        <button className="btn btn-xs md:btn-sm w-full btn-ghost btn-outline">
-                            Update
+                        <button
+                        onClick={ handleAddToCart}
+                        className="btn btn-xs md:btn-sm w-full btn-ghost btn-outline">
+                            Add to Cart
                         </button>
                     </div>
                 </div>
