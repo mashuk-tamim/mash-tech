@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import BrandCards from "./BrandCards";
 
-const Brands = () => {
+const AllBrands = () => {
     const [brands, setBrands] = useState([]);
 
     useEffect(() => {
@@ -26,4 +26,4 @@ const Brands = () => {
     );
 };
 
-export default Brands;
+export default AllBrands;

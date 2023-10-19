@@ -1,59 +1,35 @@
-import Swal from "sweetalert2";
-import "animate.css";
 
-const AddProduct = () => {
-    const handleAddProduct = (e) => {
+
+const UpdateProduct = () => {
+
+    const handleUpdateProduct = e => {
         e.preventDefault();
         const form = e.target;
         const name = form.name.value;
         const brand = form.brand.value;
         const category = form.category.value;
-        const description = form.description.value;
+        // const description = form.description.value;
         const price = form.price.value;
         const rating = form.rating.value;
         const image = form.image.value;
 
-        const newProduct = {
+        const updatedProduct = {
             name,
             brand,
             category,
-            description,
+            // description,
             price,
             rating,
             image,
         };
 
-        console.log(newProduct);
-
-        //send data to server
-        fetch("http://localhost:5000/products", {
-            method: "POST",
-            headers: {
-                "content-type": "application/json",
-            },
-            body: JSON.stringify(newProduct),
-        })
-            .then((res) => res.json())
-            .then((data) => {
-                console.log(data);
-                if (data.insertedId) {
-                    Swal.fire({
-                        title: "Product Added Successfully",
-                        showClass: {
-                            popup: "animate__animated animate__fadeInDown",
-                        },
-                        hideClass: {
-                            popup: "animate__animated animate__fadeOutUp",
-                        },
-                    });
-                }
-            });
-    };
+        console.log(updatedProduct);
+    }
     return (
         <div>
-            <h2 className="text-4xl text-center font-bold pt-3">Add Product</h2>
+            <h2 className="text-4xl text-center font-bold pt-3">Update Product</h2>
             <form
-                onSubmit={handleAddProduct}
+                onSubmit={handleUpdateProduct}
                 className="space-y-5 p-5 w-full md:w-2/3 lg:w-1/2 mx-auto"
             >
                 <div className="form-control">
@@ -80,14 +56,14 @@ const AddProduct = () => {
                         className="input input-bordered"
                     />
                 </div>
-                <div className="form-control">
+                {/* <div className="form-control">
                     <input
                         type="text"
                         name="description"
                         placeholder="short description"
                         className="input input-bordered"
                     />
-                </div>
+                </div> */}
                 <div className="form-control">
                     <input
                         type="text"
@@ -116,7 +92,7 @@ const AddProduct = () => {
                 <div className="">
                     <input
                         type="submit"
-                        value="Add"
+                        value="Update"
                         className="btn btn-success w-full"
                     />
                 </div>
@@ -125,4 +101,4 @@ const AddProduct = () => {
     );
 };
 
-export default AddProduct;
+export default UpdateProduct;
