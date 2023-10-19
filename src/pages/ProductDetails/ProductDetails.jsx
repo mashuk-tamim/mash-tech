@@ -26,6 +26,19 @@ const ProductDetails = () => {
     const { name, brand, category, description, price, rating, image } =
         matchedProduct || {};
 
+    // const _id = `ObjectId('${id}')`;
+
+    // const item = {
+    //     _id,
+    //     name,
+    //     brand,
+    //     category,
+    //     description,
+    //     price,
+    //     rating,
+    //     image,
+    // };
+
     // console.log(_id, name, brand, category, description, price, rating, image);
 
     const handleAddToCart = () => {

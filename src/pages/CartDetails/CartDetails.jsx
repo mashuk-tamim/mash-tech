@@ -7,7 +7,23 @@ CartDetails.propTypes = {
 };
 
 function CartDetails({cartItem}) {
-    const {image, name, brand, price, rating} = cartItem;
+    const {_id, image, name, brand, price, rating} = cartItem;
+
+    const HandleRemoveFromCart = (id) => {
+        console.log(id);
+
+        fetch(`http://localhost:5000/carts/${id}`,{
+            method: 'DELETE',
+            // headers: {
+            //     'content-type': 'application/json'
+            // },
+            // body: JSON.stringify(id)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+        })
+    }
     return (
         <div className="border rounded-xl shadow-slate-400 shadow-lg">
             <div className="flex justify-start gap-5 p-2">
@@ -42,7 +58,7 @@ function CartDetails({cartItem}) {
                 </div>
             </div>
             <div className="p-2">
-                <button className="btn btn-ghost btn-outline btn-xs md:btn-sm w-full">
+                <button onClick={() => HandleRemoveFromCart(_id)} className="btn btn-ghost btn-outline btn-xs md:btn-sm w-full">
                     Remove from Cart
                 </button>
             </div>
