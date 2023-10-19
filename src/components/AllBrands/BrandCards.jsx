@@ -11,7 +11,7 @@ function BrandCards({brand}) {
     const {id, name, image} = brand;
     return (
         <Link to={`/brand/${id}`}>
-            <div className="flex flex-col items-center bg-[#ffe4c42c] border py-10 rounded-lg">
+            <div className="flex flex-col items-center border hover:bg-slate-200 hover:text-black py-10 rounded-lg">
                 <img className="w-1/4" src={image} alt={name} />
                 <h3 className="text-base font-bold">{name}</h3>
             </div>
