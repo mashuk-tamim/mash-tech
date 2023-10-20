@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import Swal from "sweetalert2";
+import swal from "sweetalert";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -18,28 +18,27 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
 
-        
-
-        signIn(email, password).then((res) => {
-            const user = res.user;
-            console.log(user);
-            Swal("Sign In", "Successful", "success");
-            navigate(location?.state ? location.state : '/');
-        })
-        .catch(error => {
-            console.error(error);
-            toast.error("Invalid email or incorrect password");
-        })
+        signIn(email, password)
+            .then((res) => {
+                const user = res.user;
+                console.log(user);
+                swal("Sign In", "Successful", "success");
+                navigate(location?.state ? location.state : "/");
+            })
+            .catch((error) => {
+                console.error(error);
+                toast.error("Invalid email or incorrect password");
+            });
     };
     const handleGoogleSignIn = () => {
         googleSignIn()
-        .then(() => {
-            new Swal("Sign In", "Successful", "success");
-            navigate(location?.state ? location.state : '/');
-        })
-        .catch(error => {
-            console.error(error);
-        })
+            .then(() => {
+                swal("Sign In", "Successful", "success");
+                navigate(location?.state ? location.state : "/");
+            })
+            .catch((error) => {
+                console.error(error);
+            });
     };
     return (
         <div className="min-h-screen mt-10">
@@ -116,7 +115,7 @@ const Login = () => {
                 position="top-center"
                 autoClose={2000}
                 hideProgressBar={false}
-                newestOnTop={false}
+                estOnTop={false}
                 closeOnClick
                 rtl={false}
                 pauseOnFocusLoss

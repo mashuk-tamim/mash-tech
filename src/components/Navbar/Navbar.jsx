@@ -5,7 +5,7 @@ import { FaBlogger } from "react-icons/fa";
 import logo_white from "../../assets/logo/logo_white.png";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
-import Swal from "sweetalert2";
+import swal from "sweetalert";
 import { ThemeContext } from "../../providers/ThemeProvider";
 
 const navLinks = (
@@ -69,7 +69,7 @@ const Navbar = () => {
     const handleLogOut = () => {
         logOut()
             .then(() => {
-                new Swal("Log Out", "Successful", "success");
+                swal("Log Out", "Successful", "success");
             })
             .catch((error) => {
                 console.error(error.code, error.message);

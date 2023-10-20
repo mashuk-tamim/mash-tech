@@ -13,6 +13,7 @@ import Register from "../pages/Register/Register";
 import Blog from "../pages/Blog/Blog";
 import AddBlog from "../pages/AddBlog/AddBlog";
 import BlogDetails from "../pages/BlogDetails/BlogDetails";
+import AddReview from "../pages/AddReview/AddReview";
 
 const router = createBrowserRouter([
     {
@@ -87,6 +88,10 @@ const router = createBrowserRouter([
                     </PrivateRoute>
                 ),
             },
+            {
+                path: '/addReview',
+                element: <AddReview></AddReview>
+            }
         ],
     },
 ]);

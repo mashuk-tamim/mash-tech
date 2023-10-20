@@ -1,4 +1,4 @@
-import Swal from "sweetalert2";
+import swal from "sweetalert";
 import "animate.css";
 
 const AddProduct = () => {
@@ -13,7 +13,7 @@ const AddProduct = () => {
         const rating = form.rating.value;
         const image = form.image.value;
 
-        const newProduct = {
+        const Product = {
             name,
             brand,
             category,
@@ -23,7 +23,7 @@ const AddProduct = () => {
             image,
         };
 
-        console.log(newProduct);
+        console.log(Product);
 
         //send data to server
         fetch("http://localhost:5000/products", {
@@ -31,13 +31,13 @@ const AddProduct = () => {
             headers: {
                 "content-type": "application/json",
             },
-            body: JSON.stringify(newProduct),
+            body: JSON.stringify(Product),
         })
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);
                 if (data.insertedId) {
-                    Swal.fire({
+                    swal.fire({
                         title: "Product Added Successfully",
                         showClass: {
                             popup: "animate__animated animate__fadeInDown",

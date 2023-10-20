@@ -1,5 +1,5 @@
 import { useLoaderData } from "react-router-dom";
-import Swal from "sweetalert2";
+import swal from "sweetalert";
 
 const UpdateProduct = () => {
     const product = useLoaderData();
@@ -43,7 +43,7 @@ const UpdateProduct = () => {
             .then((data) => {
                 console.log(data);
                 if (data.modifiedCount > 0) {
-                    Swal.fire({
+                    swal.fire({
                         title: "Product Updated Successfully",
                         showClass: {
                             popup: "animate__animated animate__fadeInDown",

@@ -36,7 +36,7 @@ const BlogDetails = () => {
                     <p className="text-2xl font-semibold  text-gray-300">
                         {title}
                     </p>
-                <p className="text-gray-400 text-sm">{body}...</p>
+                <p className="text-gray-400 text-sm">{body}</p>
             </div>
         </div>
     );

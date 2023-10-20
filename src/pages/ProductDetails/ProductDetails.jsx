@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import Rating from "react-rating";
 import { BsStar, BsStarFill } from "react-icons/bs";
 import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa";
-import Swal from "sweetalert2";
+import swal from "sweetalert";
 
 const ProductDetails = () => {
     const [products, setProducts] = useState([]);
@@ -38,7 +38,7 @@ const ProductDetails = () => {
             .then((data) => {
                 console.log(data);
                 if (data.insertedId) {
-                    Swal.fire({
+                    swal.fire({
                         title: "Added to Cart Successfully",
                         showClass: {
                             popup: "animate__animated animate__fadeInDown",

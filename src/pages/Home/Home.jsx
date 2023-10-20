@@ -1,5 +1,6 @@
 import Banner from "../../components/Banner/Banner";
 import AllBrands from "../../components/AllBrands/AllBrands";
+import Testimonial from "../../components/Testimonial/Testimonial";
 
 
 const Home = () => {
@@ -10,6 +11,7 @@ const Home = () => {
             <div className="px-5">
                 <AllBrands></AllBrands>
             </div>
+            <Testimonial></Testimonial>
         </div>
     );
 };

@@ -1,13 +1,12 @@
 import { useContext } from "react";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
-import Swal from "sweetalert2";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import swal from "sweetalert";
 
 const Register = () => {
     const { signUp, googleSignIn, updateUserProfile } = useContext(AuthContext);
-    const navigate = useNavigate();
     const handleRegister = (e) => {
         e.preventDefault();
 
@@ -33,32 +32,33 @@ const Register = () => {
             .then((res) => {
                 const user = res?.user;
                 console.log(user);
-                Swal(
+                swal(
                     "Sign Up Successful!",
                     "Please login to continue",
                     "success"
                 );
+
                 updateUserProfile(name, photoUrl)
                     .then((res) => {
-                        console.log("profile updated", res.user);
+                        console.log("profile updated", res?.user);
+                        <Navigate to="/login"></Navigate>;
                     })
                     .catch((error) => {
                         console.error("error", error);
                     });
-                navigate("/login");
             })
             .catch((error) => {
                 console.error(error);
-                toast.error(`${error.code.slice(5, error.message.length)}`);
+                toast.error(`${error?.code.slice(5, error?.message?.length)}`);
             });
     };
 
     const handleGoogleSignUp = () => {
         googleSignIn()
             .then((res) => {
-                const user = res.user;
+                const user = res?.user;
                 console.log(user);
-                new Swal(
+                swal(
                     "Sign Up Successful!",
                     "Please login to continue",
                     "success"
@@ -71,7 +71,7 @@ const Register = () => {
     };
     return (
         <div className="min-h-screen my-12">
-            <div className="w-3/4 md:w-3/5 lg:w-1/2 mx-auto bg-gray-600 rounded-xl p-10 space-y-5 border-green-400 border-2 shadow-xl">
+            <div className="w-11/12 md:w-3/5 lg:w-1/2 mx-auto bg-gray-600 rounded-xl p-10 space-y-5 border-green-400 border-2 shadow-xl">
                 <h2 className="text-2xl md:text-4xl font-bold text-center text-white">
                     Please Register
                 </h2>
@@ -149,7 +149,7 @@ const Register = () => {
                 position="top-center"
                 autoClose={1979}
                 hideProgressBar={false}
-                newestOnTop={false}
+                estOnTop={false}
                 closeOnClick
                 rtl={false}
                 pauseOnFocusLoss

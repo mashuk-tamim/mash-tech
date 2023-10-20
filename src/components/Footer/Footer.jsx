@@ -20,7 +20,7 @@ const Footer = () => {
     return (
         <div className={`${isDark ? "bg-gray-600" : "bg-gray-800"}`}>
             <footer className=" p-5 md:p-10 text-white rounded space-y-3 md:space-y-5 flex flex-col items-center">
-                <div className="flex gap-3 md:gap-5 lg:gap-10 text-sm md:text-base text-center">
+                <div className="flex flex-wrap gap-3 md:gap-5 lg:gap-10 text-sm md:text-base text-center">
                     <Link to="/">Home</Link>
                     <Link to="/addProduct">Add Product</Link>
                     <Link to="/cart">My Cart</Link>
@@ -30,6 +30,7 @@ const Footer = () => {
                             <Link to="/addBlog">Add Blog</Link>
                         </>
                     )}
+                    <Link to="/addReview">Add Review</Link>
                 </div>
                 <div>
                     <div className="flex gap-3 md:gap-5 lg:gap-10 mx-auto">

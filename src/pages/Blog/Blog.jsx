@@ -24,7 +24,7 @@ const Blog = () => {
                 Blog
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-                {blogs.map((blog) => (
+                {blogs?.map((blog) => (
                     <BlogCards blog={blog} key={blog._id}></BlogCards>
                 ))}
             </div>

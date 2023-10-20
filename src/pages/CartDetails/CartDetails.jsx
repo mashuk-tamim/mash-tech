@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import Rating from "react-rating";
 import { BsStar, BsStarFill } from "react-icons/bs";
-import Swal from "sweetalert2";
+import swal from "sweetalert";
 
 CartDetails.propTypes = {
     cartItem: PropTypes.object.isRequired,
@@ -15,7 +15,7 @@ function CartDetails({ cartItem, carts, setCarts }) {
     const HandleRemoveFromCart = (id) => {
         console.log(id);
 
-        Swal.fire({
+        swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
             icon: "warning",
@@ -32,7 +32,7 @@ function CartDetails({ cartItem, carts, setCarts }) {
                     .then((data) => {
                         console.log(data);
                         if (data.deletedCount > 0) {
-                            Swal.fire(
+                            swal.fire(
                                 "Deleted!",
                                 "Your product has been deleted from cart.",
                                 "success"
