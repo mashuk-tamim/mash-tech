@@ -8,6 +8,7 @@ import UpdateProduct from "../pages/UpdateProduct/UpdateProduct";
 import BrandProducts from "../pages/BrandProducts/BrandProducts";
 import ProductDetails from "../pages/ProductDetails/ProductDetails";
 import Login from "../pages/Login/Login";
+import PrivateRoute from './PrivateRoute';
 
 const router = createBrowserRouter([
     {
@@ -21,15 +22,27 @@ const router = createBrowserRouter([
             },
             {
                 path: "/carts",
-                element: <Cart></Cart>,
+                element: (
+                    <PrivateRoute>
+                        <Cart></Cart>
+                    </PrivateRoute>
+                ),
             },
             {
                 path: "/addProduct",
-                element: <AddProduct></AddProduct>,
+                element: (
+                    <PrivateRoute>
+                        <AddProduct></AddProduct>
+                    </PrivateRoute>
+                ),
             },
             {
                 path: "/updateProduct/:id",
-                element: <UpdateProduct></UpdateProduct>,
+                element: (
+                    <PrivateRoute>
+                        <UpdateProduct></UpdateProduct>
+                    </PrivateRoute>
+                ),
                 loader: ({ params }) =>
                     fetch(
                         `https://mash-tech-server-drq2abpar-mashuk-tamims-projects.vercel.app/products/${params.id}`
@@ -42,12 +55,16 @@ const router = createBrowserRouter([
             },
             {
                 path: "/details/:id",
-                element: <ProductDetails></ProductDetails>,
+                element: (
+                    <PrivateRoute>
+                        <ProductDetails></ProductDetails>
+                    </PrivateRoute>
+                ),
             },
             {
                 path: "/login",
-                element: <Login></Login>
-            }
+                element: <Login></Login>,
+            },
         ],
     },
 ]);

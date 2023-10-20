@@ -1,11 +1,14 @@
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
+    const navigate = useNavigate();
+    const location = useLocation();
+
     const { signIn, googleSignIn } = useContext(AuthContext);
 
     const handleSignIn = (e) => {
@@ -15,10 +18,13 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
 
+        
+
         signIn(email, password).then((res) => {
             const user = res.user;
             console.log(user);
-            swal("Sign In", "Successful", "success");
+            Swal("Sign In", "Successful", "success");
+            navigate(location?.state ? location.state : '/');
         })
         .catch(error => {
             console.error(error);
@@ -27,7 +33,13 @@ const Login = () => {
     };
     const handleGoogleSignIn = () => {
         googleSignIn()
-        .then()
+        .then(() => {
+            Swal("Sign In", "Successful", "success");
+            navigate(location?.state ? location.state : '/');
+        })
+        .catch(error => {
+            console.error(error);
+        })
     };
     return (
         <div className="min-h-screen mt-10">

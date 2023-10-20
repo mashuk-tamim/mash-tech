@@ -2,10 +2,8 @@ import { Link, NavLink } from "react-router-dom";
 import { BsFillCartPlusFill, BsDatabaseFillAdd } from "react-icons/bs";
 import { AiFillHome } from "react-icons/ai";
 import logo_white from '../../assets/logo/logo_white.png'
-
-// import { useContext } from "react";
-// import { AuthContext } from "../../providers/AuthProvider";
-// import logo from '../../assets/logo/letter-e.png'
+import { useContext } from "react";
+import { AuthContext } from "../../providers/AuthProvider";
 
 const navLinks = (
     <div className="flex flex-col md:flex-row font-medium text-black md:text-white text-xs md:text-sm lg:text-base">
@@ -62,7 +60,7 @@ const Navbar = () => {
             <div className="navbar-center hidden md:flex">
                 <ul className="menu menu-horizontal px-1">{navLinks}</ul>
             </div>
-            {/* <div className="navbar-end">
+            <div className="navbar-end">
                 {user && (
                     <div className="flex gap-1 items-center  rounded-l-full rounded-r-full p-0 w-1/2 mr-2">
                         <div className="w-1/4 md:w-1/3 lg:w-1/5">
@@ -97,7 +95,7 @@ const Navbar = () => {
                         </Link>
                     )}
                 </div>
-            </div> */}
+            </div>
         </div>
     );
 };
