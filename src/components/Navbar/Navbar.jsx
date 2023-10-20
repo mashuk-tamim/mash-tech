@@ -4,6 +4,7 @@ import { AiFillHome } from "react-icons/ai";
 import logo_white from '../../assets/logo/logo_white.png'
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
+import Swal from "sweetalert2";
 
 const navLinks = (
     <div className="flex flex-col md:flex-row font-medium text-black md:text-white text-xs md:text-sm lg:text-base">
@@ -23,6 +24,19 @@ const navLinks = (
 );
 
 const Navbar = () => {
+
+    const {user, logOut} = useContext(AuthContext);
+    const firstName = user?.displayName?.split(" ")[0];
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => {
+                Swal("Log Out", "Successful", "success");
+            })
+            .catch((error) => {
+                console.error(error.code, error.message);
+            });
+    }
     return (
         <div className="navbar bg-gray-800 text-white font-montserrat lg:py-3 px-3 md:px-6">
             <div className="navbar-start">
@@ -81,7 +95,7 @@ const Navbar = () => {
                     {user ? (
                         <Link to="/login">
                             <button
-                                onClick={handleSignOut}
+                                onClick={handleLogOut}
                                 className="py-2 px-3 rounded-lg text-xs md:text-sm lg:btn lg:btn-success text-gray-800 bg-[#36d399] font-semibold"
                             >
                                 Log out
