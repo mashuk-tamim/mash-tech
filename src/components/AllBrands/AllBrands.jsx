@@ -8,11 +8,11 @@ const AllBrands = () => {
         fetch("/brands.json")
             .then((res) => res.json())
             .then((data) => {
-                console.log(data);
+                // console.log(data);
                 setBrands(data);
             });
     }, []);
-    console.log(brands);
+    // console.log(brands);
     return (
         <div className="my-10">
             <h2 className="text-4xl font-bold text-center pb-5">Our Trusted Brands</h2>

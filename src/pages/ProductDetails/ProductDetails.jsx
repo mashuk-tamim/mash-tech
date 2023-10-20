@@ -9,9 +9,7 @@ const ProductDetails = () => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        fetch(
-            "https://mash-tech-server-drq2abpar-mashuk-tamims-projects.vercel.app/products"
-        )
+        fetch("http://localhost:5000/products")
             .then((res) => res.json())
             .then((data) => {
                 setProducts(data);
@@ -29,16 +27,13 @@ const ProductDetails = () => {
         matchedProduct || {};
 
     const handleAddToCart = () => {
-        fetch(
-            "https://mash-tech-server-drq2abpar-mashuk-tamims-projects.vercel.app/carts",
-            {
-                method: "POST",
-                headers: {
-                    "content-type": "application/json",
-                },
-                body: JSON.stringify(matchedProduct),
-            }
-        )
+        fetch("http://localhost:5000/carts", {
+            method: "POST",
+            headers: {
+                "content-type": "application/json",
+            },
+            body: JSON.stringify(matchedProduct),
+        })
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);

@@ -34,7 +34,7 @@ const Login = () => {
     const handleGoogleSignIn = () => {
         googleSignIn()
         .then(() => {
-            Swal("Sign In", "Successful", "success");
+            new Swal("Sign In", "Successful", "success");
             navigate(location?.state ? location.state : '/');
         })
         .catch(error => {

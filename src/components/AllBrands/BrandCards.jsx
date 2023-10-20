@@ -7,7 +7,7 @@ BrandCards.propTypes = {
 };
 
 function BrandCards({brand}) {
-    console.log(brand);
+    // console.log(brand);
     const {id, name, image} = brand;
     return (
         <Link to={`/brand/${id}`}>

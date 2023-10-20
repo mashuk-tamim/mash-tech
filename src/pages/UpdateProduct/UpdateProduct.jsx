@@ -32,16 +32,13 @@ const UpdateProduct = () => {
 
         console.log(updatedProduct);
 
-        fetch(
-            `https://mash-tech-server-drq2abpar-mashuk-tamims-projects.vercel.app/products/${_id}`,
-            {
-                method: "PUT",
-                headers: {
-                    "content-type": "application/json",
-                },
-                body: JSON.stringify(updatedProduct),
-            }
-        )
+        fetch(`http://localhost:5000/products/${_id}`, {
+            method: "PUT",
+            headers: {
+                "content-type": "application/json",
+            },
+            body: JSON.stringify(updatedProduct),
+        })
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);

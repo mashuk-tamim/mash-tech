@@ -25,12 +25,9 @@ function CartDetails({ cartItem, carts, setCarts }) {
             confirmButtonText: "Yes, delete it!",
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(
-                    `https://mash-tech-server-drq2abpar-mashuk-tamims-projects.vercel.app/carts/${id}`,
-                    {
-                        method: "DELETE",
-                    }
-                )
+                fetch(`http://localhost:5000/carts/${id}`, {
+                    method: "DELETE",
+                })
                     .then((res) => res.json())
                     .then((data) => {
                         console.log(data);

@@ -58,7 +58,7 @@ const Register = () => {
             .then((res) => {
                 const user = res.user;
                 console.log(user);
-                Swal(
+                new Swal(
                     "Sign Up Successful!",
                     "Please login to continue",
                     "success"

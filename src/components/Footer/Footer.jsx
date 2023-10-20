@@ -1,20 +1,35 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { FiMail } from "react-icons/fi";
 import { LuPhoneCall } from "react-icons/lu";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { ThemeContext } from "../../providers/ThemeProvider";
 
 const Footer = () => {
-    const {isDark} = useContext(ThemeContext);
+    const { isDark } = useContext(ThemeContext);
+    const [isBlog, setIsBlog] = useState(false)
+    const location = useLocation();
+
+    useEffect(() => {
+        if(location.pathname === '/blog' || location.pathname === '/addBlog'){
+            setIsBlog(true);
+        }
+        else{
+            setIsBlog(false);
+        }
+    }, [location]);
     return (
-        <div className={`${
-                isDark ? "bg-gray-600" : "bg-gray-800"
-            }`}>
+        <div className={`${isDark ? "bg-gray-600" : "bg-gray-800"}`}>
             <footer className=" p-5 md:p-10 text-white rounded space-y-3 md:space-y-5 flex flex-col items-center">
                 <div className="flex gap-3 md:gap-5 lg:gap-10 text-sm md:text-base text-center">
                     <Link to="/">Home</Link>
                     <Link to="/addProduct">Add Product</Link>
                     <Link to="/cart">My Cart</Link>
+                    <Link to="/blog">Blog</Link>
+                    {isBlog && (
+                        <>
+                            <Link to="/addBlog">Add Blog</Link>
+                        </>
+                    )}
                 </div>
                 <div>
                     <div className="flex gap-3 md:gap-5 lg:gap-10 mx-auto">

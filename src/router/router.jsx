@@ -8,8 +8,11 @@ import UpdateProduct from "../pages/UpdateProduct/UpdateProduct";
 import BrandProducts from "../pages/BrandProducts/BrandProducts";
 import ProductDetails from "../pages/ProductDetails/ProductDetails";
 import Login from "../pages/Login/Login";
-import PrivateRoute from './PrivateRoute';
+import PrivateRoute from "./PrivateRoute";
 import Register from "../pages/Register/Register";
+import Blog from "../pages/Blog/Blog";
+import AddBlog from "../pages/AddBlog/AddBlog";
+import BlogDetails from "../pages/BlogDetails/BlogDetails";
 
 const router = createBrowserRouter([
     {
@@ -32,9 +35,9 @@ const router = createBrowserRouter([
             {
                 path: "/addProduct",
                 element: (
-                    
+                    <PrivateRoute>
                         <AddProduct></AddProduct>
-                    
+                    </PrivateRoute>
                 ),
             },
             {
@@ -45,9 +48,7 @@ const router = createBrowserRouter([
                     </PrivateRoute>
                 ),
                 loader: ({ params }) =>
-                    fetch(
-                        `https://mash-tech-server-drq2abpar-mashuk-tamims-projects.vercel.app/products/${params.id}`
-                    ),
+                    fetch(`http://localhost:5000/products/${params.id}`),
             },
             {
                 path: "/brand/:id",
@@ -68,8 +69,24 @@ const router = createBrowserRouter([
             },
             {
                 path: "/register",
-                element: <Register></Register>
-            }
+                element: <Register></Register>,
+            },
+            {
+                path: "/blog",
+                element: <Blog></Blog>,
+            },
+            {
+                path: "/addBlog",
+                element: <AddBlog></AddBlog>,
+            },
+            {
+                path: "/blogDetails/:id",
+                element: (
+                    <PrivateRoute>
+                        <BlogDetails></BlogDetails>
+                    </PrivateRoute>
+                ),
+            },
         ],
     },
 ]);

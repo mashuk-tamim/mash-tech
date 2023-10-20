@@ -1,44 +1,37 @@
 import Swal from "sweetalert2";
-import "animate.css";
 
-const AddProduct = () => {
-    const handleAddProduct = (e) => {
+const AddBlog = () => {
+    const handleAddBlog = (e) => {
         e.preventDefault();
+
         const form = e.target;
+
         const name = form.name.value;
-        const brand = form.brand.value;
-        const category = form.category.value;
-        const description = form.description.value;
-        const price = form.price.value;
-        const rating = form.rating.value;
+        const title = form.title.value;
+        const body = form.body.value;
         const image = form.image.value;
 
-        const newProduct = {
+        const newBlog = {
             name,
-            brand,
-            category,
-            description,
-            price,
-            rating,
+            title,
+            body,
             image,
         };
 
-        console.log(newProduct);
-
         //send data to server
-        fetch("http://localhost:5000/products", {
+        fetch("http://localhost:5000/blogs", {
             method: "POST",
             headers: {
                 "content-type": "application/json",
             },
-            body: JSON.stringify(newProduct),
+            body: JSON.stringify(newBlog),
         })
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);
                 if (data.insertedId) {
                     Swal.fire({
-                        title: "Product Added Successfully",
+                        title: "Blog Added Successfully",
                         showClass: {
                             popup: "animate__animated animate__fadeInDown",
                         },
@@ -47,62 +40,41 @@ const AddProduct = () => {
                         },
                     });
                 }
+                form.reset();
             });
     };
     return (
         <div>
-            <h2 className="text-4xl text-center font-bold pt-3">Add Product</h2>
+            <h2 className="text-4xl text-center font-bold pt-3">Add Blog</h2>
             <form
-                onSubmit={handleAddProduct}
+                onSubmit={handleAddBlog}
                 className="space-y-5 p-5 w-full md:w-2/3 lg:w-1/2 mx-auto"
             >
                 <div className="form-control">
                     <input
                         type="text"
                         name="name"
-                        placeholder="name"
+                        placeholder="author name"
                         className="input input-bordered"
+                        required
                     />
                 </div>
                 <div className="form-control">
                     <input
                         type="text"
-                        name="brand"
-                        placeholder="brand name"
+                        name="title"
+                        placeholder="title"
                         className="input input-bordered"
+                        required
                     />
                 </div>
                 <div className="form-control">
                     <input
                         type="text"
-                        name="category"
-                        placeholder="category ex. phone, computer, etc"
+                        name="body"
+                        placeholder="blog body"
                         className="input input-bordered"
-                    />
-                </div>
-                <div className="form-control">
-                    <input
-                        type="text"
-                        name="description"
-                        placeholder="short description"
-                        className="input input-bordered"
-                    />
-                </div>
-                <div className="form-control">
-                    <input
-                        type="text"
-                        name="price"
-                        placeholder="price"
-                        className="input input-bordered"
-                    />
-                </div>
-
-                <div className="form-control">
-                    <input
-                        type="text"
-                        name="rating"
-                        placeholder="rating"
-                        className="input input-bordered"
+                        required
                     />
                 </div>
                 <div className="form-control">
@@ -111,8 +83,10 @@ const AddProduct = () => {
                         name="image"
                         placeholder="image URL"
                         className="input input-bordered"
+                        required
                     />
                 </div>
+
                 <div className="">
                     <input
                         type="submit"
@@ -125,4 +99,4 @@ const AddProduct = () => {
     );
 };
 
-export default AddProduct;
+export default AddBlog;
