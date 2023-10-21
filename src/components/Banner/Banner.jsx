@@ -19,7 +19,7 @@ const Banner = () => {
                     clickable: true,
                 }}
                 autoplay={{
-                    delay: 1000000,
+                    delay: 2000,
                     disableOnInteraction: false,
                 }}
                 // navigation={true}
