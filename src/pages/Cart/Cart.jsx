@@ -4,7 +4,7 @@ import CartDetails from "../CartDetails/CartDetails";
 const Cart = () => {
     const [carts, setCarts] = useState();
     useEffect(() => {
-        fetch("http://localhost:5000/carts")
+        fetch("https://mash-tech-server.vercel.app/carts")
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);

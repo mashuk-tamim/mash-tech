@@ -32,7 +32,7 @@ const UpdateProduct = () => {
 
         console.log(updatedProduct);
 
-        fetch(`http://localhost:5000/products/${_id}`, {
+        fetch(`https://mash-tech-server.vercel.app/products/${_id}`, {
             method: "PUT",
             headers: {
                 "content-type": "application/json",
@@ -43,15 +43,7 @@ const UpdateProduct = () => {
             .then((data) => {
                 console.log(data);
                 if (data.modifiedCount > 0) {
-                    swal.fire({
-                        title: "Product Updated Successfully",
-                        showClass: {
-                            popup: "animate__animated animate__fadeInDown",
-                        },
-                        hideClass: {
-                            popup: "animate__animated animate__fadeOutUp",
-                        },
-                    });
+                    swal("Product Updated", " Successful!", "success");
                     window.history.back();
                 }
             });

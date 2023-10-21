@@ -9,7 +9,7 @@ const ProductDetails = () => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:5000/products")
+        fetch("https://mash-tech-server.vercel.app/products")
             .then((res) => res.json())
             .then((data) => {
                 setProducts(data);
@@ -27,7 +27,7 @@ const ProductDetails = () => {
         matchedProduct || {};
 
     const handleAddToCart = () => {
-        fetch("http://localhost:5000/carts", {
+        fetch("https://mash-tech-server.vercel.app/carts", {
             method: "POST",
             headers: {
                 "content-type": "application/json",
@@ -38,15 +38,7 @@ const ProductDetails = () => {
             .then((data) => {
                 console.log(data);
                 if (data.insertedId) {
-                    swal.fire({
-                        title: "Added to Cart Successfully",
-                        showClass: {
-                            popup: "animate__animated animate__fadeInDown",
-                        },
-                        hideClass: {
-                            popup: "animate__animated animate__fadeOutUp",
-                        },
-                    });
+                    swal("Added to Cart", " Successfully!", "success");
                 }
             });
     };

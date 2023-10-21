@@ -14,6 +14,7 @@ import Blog from "../pages/Blog/Blog";
 import AddBlog from "../pages/AddBlog/AddBlog";
 import BlogDetails from "../pages/BlogDetails/BlogDetails";
 import AddReview from "../pages/AddReview/AddReview";
+import AddUpcoming from "../pages/AddUpcoming/AddUpcoming";
 
 const router = createBrowserRouter([
     {
@@ -49,7 +50,9 @@ const router = createBrowserRouter([
                     </PrivateRoute>
                 ),
                 loader: ({ params }) =>
-                    fetch(`http://localhost:5000/products/${params.id}`),
+                    fetch(
+                        `https://mash-tech-server.vercel.app/products/${params.id}`
+                    ),
             },
             {
                 path: "/brand/:id",
@@ -89,9 +92,21 @@ const router = createBrowserRouter([
                 ),
             },
             {
-                path: '/addReview',
-                element: <AddReview></AddReview>
-            }
+                path: "/addReview",
+                element: (
+                    <PrivateRoute>
+                        <AddReview></AddReview>
+                    </PrivateRoute>
+                ),
+            },
+            {
+                path: "/upcoming",
+                element: (
+                    <PrivateRoute>
+                        <AddUpcoming></AddUpcoming>
+                    </PrivateRoute>
+                ),
+            },
         ],
     },
 ]);

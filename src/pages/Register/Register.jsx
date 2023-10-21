@@ -1,5 +1,5 @@
-import { useContext } from "react";
-import { Link, Navigate } from "react-router-dom";
+import { useContext} from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -7,6 +7,8 @@ import swal from "sweetalert";
 
 const Register = () => {
     const { signUp, googleSignIn, updateUserProfile } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
     const handleRegister = (e) => {
         e.preventDefault();
 
@@ -41,11 +43,12 @@ const Register = () => {
                 updateUserProfile(name, photoUrl)
                     .then((res) => {
                         console.log("profile updated", res?.user);
-                        <Navigate to="/login"></Navigate>;
                     })
                     .catch((error) => {
                         console.error("error", error);
                     });
+                // navigate('/login');
+                navigate(location?.state ? location.state : "/");
             })
             .catch((error) => {
                 console.error(error);
@@ -63,12 +66,14 @@ const Register = () => {
                     "Please login to continue",
                     "success"
                 );
-                <Navigate to="/login"></Navigate>;
+                navigate(location?.state ? location.state : "/");
+                // <Navigate to="/login"></Navigate>;
             })
             .catch((error) => {
                 console.error(error);
             });
     };
+
     return (
         <div className="min-h-screen my-12">
             <div className="w-11/12 md:w-3/5 lg:w-1/2 mx-auto bg-gray-600 rounded-xl p-10 space-y-5 border-green-400 border-2 shadow-xl">

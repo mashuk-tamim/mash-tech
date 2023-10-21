@@ -14,10 +14,11 @@ const BrandProducts = () => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:5000/products")
+        fetch("https://mash-tech-server.vercel.app/products")
             .then((res) => res.json())
             .then((data) => {
                 setProducts(data);
+                console.log(data);
             });
     }, []);
 
@@ -29,11 +30,23 @@ const BrandProducts = () => {
     console.log(matchedProducts);
 
     return (
-        <div>
-            <h2>All Products: {products?.length}</h2>
+        <div className="mt-10 mb-20">
+            {/* <h2>All Products: {products?.length}</h2> */}
             <p className="text-4xl font-bold text-center py-5">
                 {brand.name} Products
             </p>
+            {matchedProducts && (
+                <>
+                    <p className="text-2xl font-semibold text-center">
+                        Opps<span className="text-red-600">!</span>
+                    </p>
+                    <img
+                    className="w-1/2 mx-auto"
+                        src="https://i.postimg.cc/gJQJvmBx/no-data-found.png"
+                        alt=""
+                    />
+                </>
+            )}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-5 h-auto">
                 {matchedProducts?.map((matchedProduct) => (
                     <ProductCards

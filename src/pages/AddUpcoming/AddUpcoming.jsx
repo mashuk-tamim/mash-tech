@@ -1,7 +1,7 @@
 import swal from "sweetalert";
 
-const AddProduct = () => {
-    const handleAddProduct = (e) => {
+const AddUpcoming = () => {
+    const handleAddUpcoming = (e) => {
         e.preventDefault();
         const form = e.target;
         const name = form.name.value;
@@ -9,34 +9,34 @@ const AddProduct = () => {
         const category = form.category.value;
         const description = form.description.value;
         const price = form.price.value;
-        const rating = form.rating.value;
+        const date = form.date.value;
         const image = form.image.value;
 
-        const Product = {
+        const upcoming = {
             name,
             brand,
             category,
             description,
             price,
-            rating,
+            date,
             image,
         };
 
-        console.log(Product);
+        // console.log(upcoming);
 
         //send data to server
-        fetch("https://mash-tech-server.vercel.app/products", {
+        fetch("https://mash-tech-server.vercel.app/upcoming", {
             method: "POST",
             headers: {
                 "content-type": "application/json",
             },
-            body: JSON.stringify(Product),
+            body: JSON.stringify(upcoming),
         })
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);
                 if (data.insertedId) {
-                    swal("Product Added", " Successful!", "success");
+                    swal("Upcoming Product Added", " Successful!", "success");
                 }
             });
     };
@@ -44,7 +44,7 @@ const AddProduct = () => {
         <div>
             <h2 className="text-4xl text-center font-bold pt-3">Add Product</h2>
             <form
-                onSubmit={handleAddProduct}
+                onSubmit={handleAddUpcoming}
                 className="space-y-5 p-5 w-full md:w-2/3 lg:w-1/2 mx-auto"
             >
                 <div className="form-control">
@@ -83,7 +83,7 @@ const AddProduct = () => {
                     <input
                         type="text"
                         name="price"
-                        placeholder="price"
+                        placeholder="estimated price"
                         className="input input-bordered"
                     />
                 </div>
@@ -91,8 +91,8 @@ const AddProduct = () => {
                 <div className="form-control">
                     <input
                         type="text"
-                        name="rating"
-                        placeholder="rating"
+                        name="date"
+                        placeholder="release date"
                         className="input input-bordered"
                     />
                 </div>
@@ -116,4 +116,4 @@ const AddProduct = () => {
     );
 };
 
-export default AddProduct;
+export default AddUpcoming;

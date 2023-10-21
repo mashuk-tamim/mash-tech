@@ -39,11 +39,11 @@ function ProductCards({ matchedProduct }) {
             </p> */}
             <div className="flex justify-between text-gray-500">
                 <p>
-                    Brand:{" "}
+                    Brand:
                     <kbd className="kbd kbd-sm font-poppins">{brand}</kbd>
                 </p>
                 <p>
-                    Category:{" "}
+                    Category:
                     <kbd className="kbd kbd-sm font-poppins">{category}</kbd>
                 </p>
             </div>

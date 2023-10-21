@@ -17,7 +17,7 @@ const AddReview = () => {
         };
 
         //send data to server
-        fetch("http://localhost:5000/testimonials", {
+        fetch("https://mash-tech-server.vercel.app/testimonials", {
             method: "POST",
             headers: {
                 "content-type": "application/json",
@@ -28,15 +28,7 @@ const AddReview = () => {
             .then((data) => {
                 console.log(data);
                 if (data.insertedId) {
-                    swal.fire({
-                        title: "Review Posted Successfully",
-                        showClass: {
-                            popup: "animate__animated animate__fadeInDown",
-                        },
-                        hideClass: {
-                            popup: "animate__animated animate__fadeOutUp",
-                        },
-                    });
+                    swal("Review Posted", " Successful!", "success");
                     form.reset();
                 }
             });

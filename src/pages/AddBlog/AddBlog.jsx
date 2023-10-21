@@ -19,7 +19,7 @@ const AddBlog = () => {
         };
 
         //send data to server
-        fetch("http://localhost:5000/blogs", {
+        fetch("https://mash-tech-server.vercel.app/blogs", {
             method: "POST",
             headers: {
                 "content-type": "application/json",
@@ -30,15 +30,7 @@ const AddBlog = () => {
             .then((data) => {
                 console.log(data);
                 if (data.insertedId) {
-                    swal.fire({
-                        title: "Blog Added Successfully",
-                        showClass: {
-                            popup: "animate__animated animate__fadeInDown",
-                        },
-                        hideClass: {
-                            popup: "animate__animated animate__fadeOutUp",
-                        },
-                    });
+                    swal("Blog Added", " Successful!", "success");
                     form.reset();
                 }
             });

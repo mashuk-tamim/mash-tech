@@ -11,7 +11,7 @@ const Blog = () => {
     console.log(location);
 
     useEffect(() => {
-        fetch("http://localhost:5000/blogs")
+        fetch("https://mash-tech-server.vercel.app/blogs")
             .then((res) => res.json())
             .then((data) => {
                 setBlogs(data);

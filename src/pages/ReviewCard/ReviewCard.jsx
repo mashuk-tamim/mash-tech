@@ -28,11 +28,11 @@ function ReviewCard({ testimonial }) {
         >
             <div className="flex flex-col items-center relative mx-auto">
                 <img
-                    className="w-1/6 md:w-[80px] lg:w-1/12 rounded-full absolute left-0 border-8 border-white"
+                    className="w-1/6 md:w-[80px] lg:w-1/4 rounded-full absolute left-0 border-8 border-white"
                     src={image}
                     alt=""
                 />
-                <div className="flex flex-col items-center bg-white p-4 md:p-10 lg:p-16 space-y-3 md:space-y-5 rounded-2xl">
+                <div className="flex flex-col items-center bg-white p-4 md:p-6 lg:p-8 space-y-3 md:space-y-5 rounded-2xl">
                     <h3 className="font-semibold">{name}</h3>
                     <p>
                         <FaQuoteLeft className="text-red-700 text-xl"></FaQuoteLeft>
