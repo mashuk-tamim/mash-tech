@@ -26,6 +26,7 @@ const Footer = () => {
                     <Link to="/blog">Blog</Link>
                 </div>
                 <div className="flex flex-wrap gap-3 md:gap-5 lg:gap-10 text-sm md:text-base text-center">
+                    <Link to="/addBrand">Add Brands</Link>
                     <Link to="/addProduct">Add Product</Link>
                     {isBlog && (
                         <>

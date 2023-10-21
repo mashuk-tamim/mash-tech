@@ -47,9 +47,9 @@ function CartDetails({ cartItem, carts, setCarts }) {
         });
     };
     return (
-        <div className="border rounded-xl shadow-slate-400 shadow-lg">
+        <div className="border rounded-xl shadow-slate-400 shadow-lg h-[180px] flex flex-col justify-between">
             <div className="flex justify-start gap-5 p-2">
-                <div className="w-1/5">
+                <div className="w-1/4 border">
                     <img className="" src={image} alt={name} />
                 </div>
                 <div className="flex flex-col">

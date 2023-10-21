@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useLoaderData, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import ProductCards from "../ProductCards/ProductCards";
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -13,15 +13,22 @@ import { Pagination, Navigation, Autoplay } from "swiper/modules";
 
 const BrandProducts = () => {
     const [loading, setLoading] = useState(true);
-    const brands = useLoaderData();
-    const { id } = useParams();
-    const intId = parseInt(id);
-    // console.log(brands, intId);
-
-    const brand = brands.find((brand) => brand.id === intId);
-    // console.log(brand);
-
+    const [brands, setBrands] = useState([]);
     const [products, setProducts] = useState([]);
+
+    const { id } = useParams();
+    // console.log(brands, id);
+    useEffect(() => {
+        fetch("https://mash-tech-server.vercel.app/brands")
+            .then((res) => res.json())
+            .then((data) => {
+                setBrands(data);
+            });
+    }, []);
+    const brand = brands.find((brand) => brand?._id === id);
+    console.log(brand);
+    const {bannerOne, bannerTwo, bannerThree} = brand || {};
+
 
     useEffect(() => {
         fetch("https://mash-tech-server.vercel.app/products")
@@ -33,32 +40,29 @@ const BrandProducts = () => {
     }, []);
 
     useEffect(() => {
-        // Use setTimeout to change the state to false after 5 seconds
         const timeoutId = setTimeout(() => {
             setLoading(false);
-        }, 500);
-
+        }, 1000);
         // Clean up the timeout to prevent memory leaks
         return () => {
             clearTimeout(timeoutId);
         };
     }, []);
 
-    // console.log(products);
-
+    
     const matchedProducts = products?.filter(
-        (product) => product.brand === brand.name
+        (product) => product?.brand === brand?.name
     );
     console.log(matchedProducts);
     if (!matchedProducts.length) {
         var noData = true;
     }
-    console.log(noData);
+    // console.log(noData);
 
     return (
         <div className="mt-10 mb-20">
             {/* <h2>All Products: {products?.length}</h2> */}
-            <p className="text-4xl font-bold text-center py-5">{brand.name}</p>
+            <p className="text-4xl font-bold text-center py-5">{brand?.name}</p>
             <Swiper
                 slidesPerView={1}
                 loop={true}
@@ -78,7 +82,7 @@ const BrandProducts = () => {
                     <div className="relative">
                         <img
                             className="w-full md:h-[400px] lg:h-[500px] object-cover"
-                            src="https://i.postimg.cc/Pqf4Fpmv/titanium.jpg"
+                            src={bannerOne}
                             alt=""
                         />
                     </div>
@@ -87,7 +91,7 @@ const BrandProducts = () => {
                     <div className="relative">
                         <img
                             className="w-full md:h-[400px] lg:h-[500px] object-cover"
-                            src="https://i.postimg.cc/3wLBM8BS/nowin-Green.jpg"
+                            src={bannerTwo}
                             alt=""
                         />
                     </div>
@@ -96,7 +100,7 @@ const BrandProducts = () => {
                     <div className="relative">
                         <img
                             className="w-full md:h-[400px] lg:h-[500px] object-cover"
-                            src="https://i.postimg.cc/j5Lhtp3s/macbook-hero.jpg"
+                            src={bannerThree}
                             alt=""
                         />
                     </div>
@@ -110,7 +114,7 @@ const BrandProducts = () => {
                 <>
                     {noData && (
                         <>
-                            <p className="text-2xl font-semibold text-center">
+                            <p className="text-2xl font-semibold text-center my-10">
                                 Opps<span className="text-red-600">!</span>
                             </p>
                             <img

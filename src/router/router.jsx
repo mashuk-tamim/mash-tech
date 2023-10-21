@@ -15,6 +15,7 @@ import AddBlog from "../pages/AddBlog/AddBlog";
 import BlogDetails from "../pages/BlogDetails/BlogDetails";
 import AddReview from "../pages/AddReview/AddReview";
 import AddUpcoming from "../pages/AddUpcoming/AddUpcoming";
+import AddBrand from "../pages/AddBrand/AddBrand";
 
 const router = createBrowserRouter([
     {
@@ -103,6 +104,7 @@ const router = createBrowserRouter([
                     </PrivateRoute>
                 ),
             },
+
             {
                 path: "/upcoming",
                 element: (
@@ -111,6 +113,12 @@ const router = createBrowserRouter([
                     </PrivateRoute>
                 ),
             },
+            {
+                path: '/addBrand',
+                element: <PrivateRoute>
+                    <AddBrand></AddBrand>
+                </PrivateRoute>
+            }
         ],
     },
 ]);
