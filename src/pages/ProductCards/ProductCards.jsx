@@ -27,8 +27,8 @@ function ProductCards({ matchedProduct }) {
                 }
             ></Rating>
             <p className="relative">
-                <span className="text-2xl font-medium">
-                    <sup className="text-xs absolute -left-2  -top-1">$</sup>
+                <span className="text-2xl font-medium pl-2">
+                    <sup className="text-xs absolute -left-0  -top-1">$</sup>
                     {price}
                 </span>
             </p>

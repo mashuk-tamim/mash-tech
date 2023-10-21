@@ -9,11 +9,13 @@ const AddReview = () => {
         const name = form.name.value;
         const body = form.body.value;
         const image = form.image.value;
+        const rating = form.rating.value;
 
         const review = {
             name,
             body,
             image,
+            rating
         };
 
         //send data to server
@@ -44,7 +46,7 @@ const AddReview = () => {
                     <input
                         type="text"
                         name="name"
-                        placeholder="author name"
+                        placeholder="customer name"
                         className="input input-bordered"
                         required
                     />
@@ -62,12 +64,19 @@ const AddReview = () => {
                     <input
                         type="text"
                         name="image"
-                        placeholder="image URL"
+                        placeholder="customer image URL"
                         className="input input-bordered"
                         required
                     />
                 </div>
-
+                <div className="form-control">
+                    <input
+                        type="text"
+                        name="rating"
+                        placeholder="rating"
+                        className="input input-bordered"
+                    />
+                </div>
                 <div className="">
                     <input
                         type="submit"

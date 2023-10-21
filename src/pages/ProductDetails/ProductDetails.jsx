@@ -1,12 +1,13 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Rating from "react-rating";
 import { BsStar, BsStarFill } from "react-icons/bs";
-import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa";
 import swal from "sweetalert";
+import { ThemeContext } from "../../providers/ThemeProvider";
 
 const ProductDetails = () => {
     const [products, setProducts] = useState([]);
+    const {isDark} = useContext(ThemeContext);
 
     useEffect(() => {
         fetch("https://mash-tech-server.vercel.app/products")
@@ -44,7 +45,7 @@ const ProductDetails = () => {
     };
 
     return (
-        <div className="p-5 lg:w-3/4 mx-auto">
+        <div className={`p-5 lg:w-3/4 mx-auto ${isDark && 'text-white'}`}>
             <h2>Product Details</h2>
             <div className="border rounded-xl p-5 shadow-xl space-y-2 lg:py-10">
                 <img
@@ -74,15 +75,7 @@ const ProductDetails = () => {
                             {price}
                         </span>
                     </p>
-                    <div className="flex gap-1 justify-center">
-                        <p>
-                            <FaQuoteLeft className="text-xs text-gray-400"></FaQuoteLeft>
-                        </p>
-                        <p className="text-center w-full mx-auto">
-                            {description}
-                        </p>
-                        <FaQuoteRight className="text-xs text-gray-400"></FaQuoteRight>
-                    </div>
+                    <p className="w-full mx-auto text-justify">{description}</p>
                     <div className="flex justify-between text-gray-500">
                         <p>
                             Brand: <kbd className="kbd kbd-sm">{brand}</kbd>

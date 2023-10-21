@@ -37,6 +37,7 @@ const AddProduct = () => {
                 console.log(data);
                 if (data.insertedId) {
                     swal("Product Added", " Successful!", "success");
+                    form.reset();
                 }
             });
     };
@@ -51,7 +52,7 @@ const AddProduct = () => {
                     <input
                         type="text"
                         name="name"
-                        placeholder="name"
+                        placeholder="product name"
                         className="input input-bordered"
                     />
                 </div>
@@ -67,7 +68,7 @@ const AddProduct = () => {
                     <input
                         type="text"
                         name="category"
-                        placeholder="category ex. phone, computer, etc"
+                        placeholder="category ex. phone, computer, etc."
                         className="input input-bordered"
                     />
                 </div>
@@ -75,7 +76,7 @@ const AddProduct = () => {
                     <input
                         type="text"
                         name="description"
-                        placeholder="short description"
+                        placeholder="description"
                         className="input input-bordered"
                     />
                 </div>
@@ -107,8 +108,8 @@ const AddProduct = () => {
                 <div className="">
                     <input
                         type="submit"
-                        value="Add"
-                        className="btn btn-success w-full"
+                        value="Add Product"
+                        className="btn btn-ghost btn-outline w-full"
                     />
                 </div>
             </form>

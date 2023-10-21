@@ -41,10 +41,10 @@ const Login = () => {
             });
     };
     return (
-        <div className="min-h-screen mt-10">
-            <div className="w-11/12 md:w-3/5 lg:w-1/2 mx-auto bg-gray-600 rounded-xl p-10 space-y-5 border-green-400 border-2 shadow-xl">
+        <div className="min-h-screen mt-10 my-12">
+            <div className="w-11/12 md:w-3/5 lg:w-1/2 mx-auto bg-gray-600 rounded-xl p-10 space-y-5 text-slate-900 border-2 shadow-xl">
                 <h2 className="text-4xl font-bold text-center text-white">
-                    Login your account
+                    Login
                 </h2>
                 <form onSubmit={handleSignIn} className="">
                     <div className="form-control">
@@ -76,14 +76,14 @@ const Login = () => {
                         />
                     </div>
                     <div className="form-control mt-8">
-                        <button className="btn btn-ghost btn-outline">
+                        <button className="btn btn-ghost btn-outline text-white">
                             Login
                         </button>
                     </div>
                 </form>
                 <p className="text-center mb-5 text-white">
                     Do not have an account?{" "}
-                    <Link className="text-green-400 font-bold" to="/register">
+                    <Link className="text-slate-900 font-bold" to="/register">
                         Register
                     </Link>
                 </p>

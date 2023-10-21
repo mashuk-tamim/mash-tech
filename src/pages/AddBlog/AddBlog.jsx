@@ -83,7 +83,7 @@ const AddBlog = () => {
                     <input
                         type="submit"
                         value="Add"
-                        className="btn btn-success w-full"
+                        className="btn btn-ghost btn-outline w-full"
                     />
                 </div>
             </form>

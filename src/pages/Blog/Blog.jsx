@@ -34,8 +34,13 @@ const Blog = () => {
                 }`}
             >
                 Want to write a blog?
-                <Link className="text-green-400 font-bold" to="/addBlog">
-                    Click here!
+                <Link
+                    className={`${
+                        isDark ? "text-white" : "text-black"
+                    }text-slate-900 pl-1 underline`}
+                    to="/addBlog"
+                >
+                    Click here
                 </Link>
             </p>
         </div>

@@ -12,11 +12,14 @@ function UpcomingCard({ upcomingProduct }) {
     // console.log(_id, name, brand, category, price, date, image);
     return (
         <div className="border rounded-xl p-5 shadow-slate-400 shadow-lg space-y-2 h-[530px] mb-10">
+            <p className="right-0 bg-purple-600 px-3 rounded-full text-sm text-white text-center">
+                coming soon
+            </p>
             <img className="h-1/2 mx-auto p-5" src={image} alt="" />
             <p className="text-xl font-bold">{name}</p>
             <p className="relative">
-                <span className="text-2xl font-medium">
-                    <sup className="text-xs absolute -left-2  -top-1">$</sup>
+                <span className="text-2xl font-medium pl-2">
+                    <sup className="text-xs absolute -left-0  -top-1">$</sup>
                     {price}
                     <span className="text-gray-500 text-base">(estimated)</span>
                 </span>
@@ -33,7 +36,10 @@ function UpcomingCard({ upcomingProduct }) {
                 Category:
                 <kbd className="kbd kbd-sm font-poppins">{category}</kbd>
             </p>
-            <p>Release Date: {date}</p>
+            <p>
+                Release Date: {date}
+                <span className="text-gray-500 text-base">(estimated)</span>
+            </p>
         </div>
     );
 }

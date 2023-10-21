@@ -76,9 +76,9 @@ const Register = () => {
 
     return (
         <div className="min-h-screen my-12">
-            <div className="w-11/12 md:w-3/5 lg:w-1/2 mx-auto bg-gray-600 rounded-xl p-10 space-y-5 border-green-400 border-2 shadow-xl">
+            <div className="w-11/12 md:w-3/5 lg:w-1/2 mx-auto bg-gray-600 rounded-xl p-10 space-y-5 border-slate-900 border-4 shadow-xl">
                 <h2 className="text-2xl md:text-4xl font-bold text-center text-white">
-                    Please Register
+                    Register
                 </h2>
                 <form onSubmit={handleRegister} className="space-y-3">
                     <div className="form-control">
@@ -118,12 +118,12 @@ const Register = () => {
                         />
                     </div>
                     <div className="form-control">
-                        <button className="btn btn-success">Register</button>
+                        <button className="btn btn-ghost btn-outline text-white">Register</button>
                     </div>
                 </form>
                 <p className="text-center text-white">
                     Already have an account?{" "}
-                    <Link className="text-green-400 font-bold" to="/login">
+                    <Link className="text-slate-900 font-bold" to="/login">
                         Login
                     </Link>
                 </p>

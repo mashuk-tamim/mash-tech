@@ -9,7 +9,7 @@ import swal from "sweetalert";
 import { ThemeContext } from "../../providers/ThemeProvider";
 
 const navLinks = (
-    <div className="flex flex-col md:flex-row font-medium text-black md:text-white text-xs md:text-sm lg:text-base">
+    <div className="flex flex-col md:flex-row font-medium md:text-white text-xs md:text-sm lg:text-base">
         <li>
             <NavLink to="/">
                 <AiFillHome className="hidden lg:flex"></AiFillHome>Home
@@ -129,7 +129,9 @@ const Navbar = () => {
                     </label>
                     <ul
                         tabIndex={0}
-                        className="menu menu-sm dropdown-content mt-2 z-[1] p-2 shadow bg-base-100 rounded-box w-36"
+                        className={`menu menu-sm dropdown-content mt-2 z-[1] p-2 shadow bg-base-100 rounded-box w-36 text-black ${
+                            isDark && "text-white"
+                        } `}
                     >
                         {navLinks}
                     </ul>
@@ -170,14 +172,14 @@ const Navbar = () => {
                         <Link to="/login">
                             <button
                                 onClick={handleLogOut}
-                                className="py-2 px-3 rounded-lg text-xs md:text-sm lg:btn lg:btn-success text-gray-800 bg-[#36d399] font-semibold"
+                                className="btn btn-ghost btn-outline text-white btn-xs md:btn-sm lg:btn-md"
                             >
                                 Log out
                             </button>
                         </Link>
                     ) : (
                         <Link to="/login">
-                            <button className="py-2 px-3 rounded-lg text-xs md:text-sm lg:btn lg:btn-success text-gray-800 bg-[#36d399] font-semibold">
+                            <button className="btn btn-ghost btn-outline text-white btn-xs md:btn-sm lg:btn-md">
                                 Login
                             </button>
                         </Link>
