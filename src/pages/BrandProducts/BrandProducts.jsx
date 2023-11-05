@@ -38,6 +38,16 @@ const BrandProducts = () => {
                 console.log(data);
             });
     }, []);
+    console.log(products)
+    // useEffect(() => {
+    //     fetch(`https://mash-tech-server.vercel.app/products/${brand?.name}`)
+    //         .then((res) => res.json())
+    //         .then((data) => {
+    //             setProducts(data);
+    //             console.log(data);
+    //         });
+    // }, [brand]);
+    // console.log(products)
 
     useEffect(() => {
         const timeoutId = setTimeout(() => {

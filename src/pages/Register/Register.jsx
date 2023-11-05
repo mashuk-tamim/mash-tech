@@ -22,13 +22,13 @@ const Register = () => {
         console.log(name, photoUrl, email, password);
 
         if (password.length < 6) {
-            toast.error("Password should be at least 6 characters");
-            return;
+            return toast.error("Password should be at least 6 characters");
+            
         } else if (/[A-Z]/.test(password)) {
-            toast.error("Password must not contain any UPPERCASE character");
-            return;
+            return toast.error("Password must not contain any UPPERCASE character");
+            
         } else if (/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
-            toast.error("Password must not contain any Special character");
+            return toast.error("Password must not contain any Special character");
         }
         signUp(email, password)
             .then((res) => {

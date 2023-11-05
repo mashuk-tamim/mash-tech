@@ -32,7 +32,7 @@ const BlogDetails = () => {
             <div className="py-2 px-5">
                 <h2 className="text-gray-400">{name}</h2>
                 <p className="text-2xl font-semibold  text-gray-300">{title}</p>
-                <p className="text-gray-400 text-sm">{body}</p>
+                <p className="text-gray-400 text-sm text-justify line-clamp-3 hover:line-clamp-none">{body}</p>
             </div>
         </div>
     );

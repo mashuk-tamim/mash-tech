@@ -47,8 +47,8 @@ const Banner = () => {
                             src="https://i.postimg.cc/Hs3NJb5d/top-view-set-gadgets-purple-neon-light-pink-min.jpg"
                             alt=""
                         />
-                        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
-                            <h2 className="text-white text-2xl md:text-4xl lg:text-5xl font-bold">
+                        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-stroke-2">
+                            <h2 className="text-white text-2xl md:text-4xl lg:text-5xl font-bold heading">
                                 Infinite Choices, One Mash Tech.
                             </h2>
                         </div>
